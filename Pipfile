@@ -15,6 +15,7 @@ python-dotenv = "*"
 install = "*"
 pytest-parallel = "*"
 pytest-random-order = "*"
+atomicwrites = "*"
 
 [dev-packages]
 autopep8 = "*"

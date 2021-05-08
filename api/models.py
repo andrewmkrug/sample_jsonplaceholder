@@ -16,6 +16,7 @@ class Post(BaseModel):
         assert v != '', 'Empty strings are not allowed.'
         return v
 
+
 class Comment(BaseModel):
     postId: int
     id: int
@@ -28,5 +29,10 @@ class Comment(BaseModel):
         assert v != '', 'Empty strings are not allowed.'
         return v
 
+
 class Posts(BaseModel):
     __root__: List[Post]
+
+
+class Comments(BaseModel):
+    __root__: List[Comment]
