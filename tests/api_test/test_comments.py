@@ -23,4 +23,12 @@ def test_post_comment(data: dict):
         assert comment.dict()[key] == data[key]
 
 
+@pytest.mark.parametrize("id", [(1), (2)])
+def test_comments_for_post_to_post_comments(id:int):
+    comments_filter_by_post = requests.get(f"{os.getenv('BASE_URL')}/comments?postId={id}")
+    posts_comments = requests.get(f"{os.getenv('BASE_URL')}/posts/{id}/comments")
+
+    assert_status_code(comments_filter_by_post.status_code)
+    assert_status_code(posts_comments.status_code)
+    assert json.loads(comments_filter_by_post.content) == json.loads(posts_comments.content)
 # Would write in a test to see if the comments allow for malformed comments
