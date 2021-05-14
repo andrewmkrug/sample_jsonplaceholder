@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 from api.models import Comments, Comment
 from tests.utils import *
-
+from hypothesis import given, note, strategies as st
 load_dotenv()
 
 
@@ -23,8 +23,10 @@ def test_post_comment(data: dict):
         assert comment.dict()[key] == data[key]
 
 
-@pytest.mark.parametrize("id", [(1), (2)])
+@given(st.text())
+# @pytest.mark.parametrize("id", [(1), (2)])
 def test_comments_for_post_to_post_comments(id:int):
+    note(f"ID was: {id}")
     comments_filter_by_post = requests.get(f"{os.getenv('BASE_URL')}/comments?postId={id}")
     posts_comments = requests.get(f"{os.getenv('BASE_URL')}/posts/{id}/comments")
 

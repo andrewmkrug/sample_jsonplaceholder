@@ -16,6 +16,7 @@ install = "*"
 pytest-parallel = "*"
 pytest-random-order = "*"
 atomicwrites = "*"
+hypothesis = "*"
 
 [dev-packages]
 autopep8 = "*"
