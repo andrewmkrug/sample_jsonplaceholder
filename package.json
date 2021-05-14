@@ -1,0 +1,16 @@
+{
+  "name": "sample_jsonplaceholder",
+  "version": "1.0.0",
+  "main": "scripts.js",
+  "repository": "https://github.com/andrewmkrug/sample_jsonplaceholder.git",
+  "author": "Andrew Krug <andrew.m.krug@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cpy-cli": "^3.1.1",
+    "json-server": "^0.16.3"
+  },
+  "scripts": {
+    "dupe": "cpy data.json .\\ --rename=db.json",
+    "start": "npm run dupe && json-server --watch db.json"
+  }
+}
