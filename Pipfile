@@ -16,6 +16,7 @@ install = "*"
 pytest-parallel = "*"
 pytest-random-order = "*"
 atomicwrites = "*"
+naughty-string-validator = "*"
 
 [dev-packages]
 autopep8 = "*"
